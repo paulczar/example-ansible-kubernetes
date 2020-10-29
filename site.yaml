@@ -1,0 +1,20 @@
+---
+- hosts:      "all"
+  connection: "local"
+
+  roles:
+    - name: roles/external-dns
+      tags: external-dns
+      when: external_dns.enabled|default("True")|bool
+
+    - name: roles/cert-manager
+      tags: cert-manager
+      when: cert_manager.enabled|default("True")|bool
+
+    - name: roles/ingress
+      tags: ingress
+      when: ingress.enabled|default("True")|bool
+
+    - name: roles/harbor
+      tags: harbor
+      when: harbor.enabled|default("True")|bool

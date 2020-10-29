@@ -1,0 +1,5 @@
+kubectl_context: gke_pgtm-pczarkowski_us-central1-c_oct15
+
+fqdn: demo.paulczar.wtf
+
+tls_issuer: letsencrypt

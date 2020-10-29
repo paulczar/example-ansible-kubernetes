@@ -1,0 +1,7 @@
+---
+- name: "ensure ingress exists on cluster"
+  import_role:
+    name: "common/k8s-apply"
+  vars:
+    namespace: "{{ ingress.namespace }}"
+    template: contour.yaml.j2

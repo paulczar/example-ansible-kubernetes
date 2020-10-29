@@ -1,0 +1,31 @@
+---
+- set_fact:
+    _role: "{{ ansible_parent_role_names[0] | basename }}"
+
+- debug:
+    msg: |
+      #################################################
+      # ROLE: {{ _role }}
+      #################################################
+    verbosity: 0
+
+
+- name: "ensure {{ _role }} namespace exists"
+  k8s:
+    name: "{{ namespace | default(_role) }}"
+    kind: Namespace
+
+- name: "ensure {{ _role }} manifest exists"
+  template:
+    src: "{{ item }}"
+    dest: "./tmp/{{ item | basename | replace('.j2', '') }}"
+  with_items: "{{ template }}"
+  changed_when: false
+
+- name: "ensure {{ _role }} is deployed"
+  k8s:
+    state: present
+    src: "./tmp/{{ item | basename | replace('.j2', '') }}"
+    namespace: "{{ namespace | default(_role) }}"
+  with_items: "{{ template }}"
+  # changed_when: false

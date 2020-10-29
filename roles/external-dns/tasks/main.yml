@@ -1,0 +1,15 @@
+---
+# tasks file for roles/external-dns
+
+- name: slurp up google credentials file
+  slurp:
+    src: "{{ external_dns.google.credentials_file }}"
+  register: _credentials_json
+  no_log: true
+
+- name: "ensure {external-dns} exists on cluster"
+  import_role:
+    name: "common/k8s-apply"
+  vars:
+    namespace: "{{ external_dns.namespace }}"
+    template: external-dns.yaml.j2

@@ -1,0 +1,7 @@
+---
+# defaults file for roles/cert-manager
+cert_manager:
+  namespace: cert-manager
+
+  letsencrypt:
+    email_address: username.taken@gmail.com

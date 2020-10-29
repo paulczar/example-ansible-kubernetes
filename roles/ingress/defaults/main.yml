@@ -1,0 +1,4 @@
+---
+# defaults file for roles/ingress
+ingress:
+  namespace: ingress

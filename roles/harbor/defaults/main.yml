@@ -1,0 +1,8 @@
+---
+# defaults file for roles/harbor
+harbor:
+  namespace: harbor
+
+  tls:
+    # ca, letsencrypt-stage, letsencrypt
+    issuer: "{{ tls_issuer | default('ca') }}"

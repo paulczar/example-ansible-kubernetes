@@ -1,0 +1,23 @@
+---
+# tasks file for roles/cluster_info
+
+- name: "get a list of nodes"
+  k8s_info:
+    kind:      Node
+    context:   "{{ kubectl_context | default(omit) }}"
+    kubeconfig: "{{ kubeconfig | default(omit) }}"
+  register: _nodes
+
+- debug:
+    var: _nodes
+  when: debug|default('False')|bool
+
+# - name: Search for all running pods
+#   k8s_info:
+#     kind: Pod
+#     field_selectors:
+#       - status.phase=Running
+#   register: _pods
+
+# - debug:
+#     var: _nodes

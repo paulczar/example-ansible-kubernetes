@@ -1,0 +1,8 @@
+---
+- name: "ensure harbor exists on cluster"
+  import_role:
+    name: "common/k8s-apply"
+  vars:
+    namespace: "{{ harbor.namespace }}"
+    template: "templates/harbor.yaml.j2"
+    manifest: "./tmp/harbor.yaml"

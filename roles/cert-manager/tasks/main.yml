@@ -1,0 +1,9 @@
+---
+- name: "ensure cert-manager exists on cluster"
+  import_role:
+    name: "common/k8s-apply"
+  vars:
+    namespace: "{{ cert_manager.namespace }}"
+    template:
+      - cluster-issuers.yaml.j2
+      - cert-manager.yaml.j2

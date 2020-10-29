@@ -1,0 +1,10 @@
+---
+# defaults file for roles/external-dns
+
+external_dns:
+  namespace: external-dns
+  domain: "{{ fqdn }}"
+
+  google:
+    project_id: pgtm-pczarkowski
+    credentials_file: /home/pczarkowski/development/lab/helm/cluster-envs/key.json
