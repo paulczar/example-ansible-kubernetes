@@ -1,37 +1,32 @@
 # Setup
 
+## local
+
+> note: to use ansible-playbook directly from the virtualenv you need to set `export ANSIBLE_PYTHON_INTERPRETER=./virtualenv/bin/python`
+
 Create virtualenv:
 
-```
 ```bash
-python3 -m venv virtualenv
+make virtualenv
 ```
 
-Activate the venv:
-
-```bash
-. virtualenv/bin/activate
-```
-
-Install python dependendencies:
-
-```bash
-pip3 install -r requirements.txt
-```
-
-Tell Ansible to use the virtualenv:
-
-```bash
-export ANSIBLE_PYTHON_INTERPRETER=`which python`
-```
-
-## Create KIND Cluster
+### Create KIND Cluster
 
 ```
-kind create cluster --config environment/default/kind_config.yaml
+make kind
 ```
 
-## Making  Roles
+### Deploy
+
+```
+make deploy
+```
+
+## docker
+
+...
+
+# Making  Roles
 
 ```
 ansible-galaxy init roles/name

@@ -5,5 +5,5 @@
   vars:
     namespace: "{{ cert_manager.namespace }}"
     template:
-      - cluster-issuers.yaml.j2
       - cert-manager.yaml.j2
+      - cluster-issuers.yaml.j2

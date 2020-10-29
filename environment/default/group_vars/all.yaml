@@ -1,5 +1,8 @@
-kubectl_context: gke_pgtm-pczarkowski_us-central1-c_oct15
+kubectl_context: kind-demo
 
-fqdn: demo.paulczar.wtf
+fqdn: 127.0.0.1.xip.io
 
-tls_issuer: letsencrypt
+tls_issuer: ca-issuer
+
+external_dns:
+  enabled: false

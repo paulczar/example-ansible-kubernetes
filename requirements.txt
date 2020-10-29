@@ -7,7 +7,6 @@ openshift==0.11.1
 # required for vmware automation
 pyvim==3.0.2
 pyvmomi==7.0
-git+https://github.com/vmware/vsphere-automation-sdk-python.git#v6.9.1
 
 # required for aws automation
 boto==2.49.0
@@ -23,7 +22,3 @@ dnspython==1.16.0
 # required for linting
 yamllint==1.24.2
 ansible-lint==4.3.4
-
-# required for helm
-pyhelm==2.14.5
-grpcio==1.32.0

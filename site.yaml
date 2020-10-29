@@ -3,6 +3,9 @@
   connection: "local"
 
   roles:
+    - name: roles/cluster-info
+      tags: cluster-info, never
+
     - name: roles/external-dns
       tags: external-dns
       when: external_dns.enabled|default("True")|bool

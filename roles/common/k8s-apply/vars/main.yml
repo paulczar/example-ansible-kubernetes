@@ -1,2 +1,4 @@
 ---
 # vars file for roles/common/k8s-apply
+
+staging_directory: ./tmp
